@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script type="text/javascript" src="/js/lib/dummy.js"></script>
+  <title> by Salih_Demir</title>
+<script type="text/javascript">//<![CDATA[
+window.onload=function(){
+document.getElementById('IBAN').addEventListener('input', function (e) {
+  var target = e.target, position = target.selectionEnd, length = target.value.length;
+  
+  target.value = target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+  target.selectionEnd = position += ((target.value.charAt(position - 1) === ' ' && target.value.charAt(length - 1) === ' ' && length !== target.value.length) ? 1 : 0);
+});
+}//]]> 
+</script>
+</head>
+<body>
+  <label for="IBAN"><strong> IBAN Number:</strong></label>                        
+<input id="IBAN" placeholder="IBAN" title="Please Type your IBAN Number" name="IBAN" type="text">
+<a target="_blank" href="#" title="Your IBAN Number starts with a country code(i.e GR,MT,TR etc.) and might contain up to 36 digits"><img src="https://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px"></a>
+</body>
+</html>
